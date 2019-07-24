@@ -1,0 +1,20 @@
+{
+  "name": "gatsby-wordpress-starter",
+  "version": "1.0.0",
+  "description": "A template repo for building a Gatsby site using Wordpress as CMS, using Docker for a local Wordpress instance",
+  "main": "index.js",
+  "scripts": {
+    "initialise": "gatsby new client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arrested-developer/gatsby-wordpress-starter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arrested-developer/gatsby-wordpress-starter/issues"
+  },
+  "homepage": "https://github.com/arrested-developer/gatsby-wordpress-starter#readme"
+}
