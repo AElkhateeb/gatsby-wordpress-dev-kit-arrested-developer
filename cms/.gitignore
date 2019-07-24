@@ -1,0 +1,29 @@
+# wordpress
+*.log
+
+# Ignore backups and caches
+wp-content/backup-db/
+wp-content/backups/
+wp-content/blogs.dir/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/wp-cache-config.php
+
+# Ignore uploaded files
+wp-content/uploads/
+
+# Ignore starter themes
+wp-content/themes/twentysixteen
+wp-content/themes/twentyseventeen
+wp-content/themes/twentyeighteen
+wp-content/themes/twentynineteen
+
+# Ignore starter plugins
+wp-content/plugins/akismet
+wp-content/plugins/hello.php
+
+# Ignore languages files
+wp-content/languages
+
+# Ignore database backup files
+backups/*.sql
