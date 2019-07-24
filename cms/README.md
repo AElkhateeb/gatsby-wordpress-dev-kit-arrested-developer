@@ -51,7 +51,6 @@ installation is intended to be easy to use even if you haven't.
 
 You don't need to make any changes, but if you wish to set the ports that
 Wordpress and/or PHPMyAdmin will be exposed on, you can edit the [.env file in this folder](./.env)
-file in this folder
 
 ### on the command line
 
@@ -70,46 +69,51 @@ will completely erase the database)
 
 ### using wordpress
 
-navigate to `localhost:8800` to see the Wordpress installation. The first time
+navigate to `localhost:3000` to see the Wordpress installation. The first time
 you run Wordpress it will prompt you to select your language and begin a new
 Wordpress site. You can start from here if you want to develop a new plugin or
-theme.
+theme or just use an out-of-the-box Wordpress instance. USEFUL TIP: set your username
+and password to something simple for your local installation to keep things simple
+while you develop the site BUT obviously remember to change the password before you
+deploy the Wordpress CMS online 😉.
 
-The files for the wordpress installation are within the Docker container. We
-don't need access to them, as we are going to write plugins or themes that can
-be used in any installation of Wordpress. The `wp-content` folder in this
-project is mapped to the same folder in the Docker container, so any files or
-folders within this folder will overwrite the ones in this folder in the
-Wordpress container. What this means is that we can add plugins, themes and
-uploaded content to the relevant folders and they will be able to be used by the
-PHP server running Wordpress on `localhost:8800`
+The PHP, CSS and other files used by Wordpress installation are mostly all tucked away
+within the Docker container. We don't need access to these as the only files we're interested
+in are those that we can take away and pop into a brand new installation of Wordpress elsewhere - these files are the ones contained in the `wp-content` folder of Wordpress, mainly themes, plugins and uploaded files.
 
-To access the admin panel, navigate to `localhost:8800/wp-admin` and log in
-using the username `admin` and password `abc123` (obviously we'll change these
-to something much more secure when we set the CMS up online 😉). From this admin
+We're using a Docker feature called `mapping` to expose the wp-content folder on our local machine.
+This overwrites the folder that exists within the Docker container with the folder on the local machine, meaning
+any changes made in Docker are reflected in our local files and vice versa. What this means is that we
+have easy access to the files that we need, and can ignore the rest.
+
+To access the admin panel of Wordpress, navigate to `localhost:3000/wp-admin` and log in
+using the username and password you chose when you set up Wordpress. From this admin
 area you can activate and deactivate plugins and change site settings.
+
+#### exporting / backing-up a database
+
+If you're familiar with PHPMyAdmin, you might choose to use this to manage the MySql database. You can export, import and edit the database using the graphical interface if you want to. You can access PHPMyAdmin at localhost:3001
+
+Using npm scripts you can run:
+
+`npm run db:export`
+
+This will save your entire wordpress database as a SQL file in ./backups with the current date as filename. Feel free to rename the file.
 
 #### importing a database
 
-navigate to `localhost:8801` to access `PHPMyAdmin`
+You can also use PHPMyAdmin for this, or you can use the provided npm script.
 
-To replace the Wordpress database with an existing database, find the
-`wordpress` database and drop all the existing tables within it. Then you can
-use `import SQL` to import a SQL file with existing Wordpress data.
+Using npm scripts, you can import a database from the command line by running:
 
-#### exporting a database
+`IMPORT_DB=path_to_your_sql_file npm run db:import`
 
-To export a SQL file (e.g to save your database or allow others to use the same
-data) use `PHPMyAdmin` on `localhost:8802` to export a SQL file of the
-`wordpress` database.
-
-### plugins and themes in use for this CMS
-
-[Mercury post types and editor blocks](./wp-content/plugins/mercury) - sets up
-all custom post types, meta fields and Gutenberg editor blocks.
+### included plugins and themes that you can use
 
 [REST files](./wp-content/plugins/REST-files) - exposes files as well as images
-on the /media endpoint of the Wordpress REST API
+on the /media endpoint of the Wordpress REST API. This tricks `gatsby-source-wordpress` into importing documents as well as images and pdf files at the build stage.
 
 [Headless theme](./wp-content/themes/headless) - removes all page rendering
-capability from Wordpress as this will be done with Gatsby
+capability from Wordpress so you can use it as a headless CMS.
+
+You can install plugins and themes from the Wordpress admin panel
