@@ -39,12 +39,19 @@ something useful like
 You will need an up to date installation of
 [Docker Desktop](https://www.docker.com/get-started) on your machine. Sign up
 for a Docker account, and download the desktop software. It's a good idea to run
-through some of the tutorials if you haven't used Docker before.
+through some of the tutorials if you haven't used Docker before, but this
+installation is intended to be easy to use even if you haven't.
 
 - With this repo cloned to your local machine, navigate to this folder (cms)
 - `npm install`
 
 ## getting started
+
+### environment variables
+
+You don't need to make any changes, but if you wish to set the ports that
+Wordpress and/or PHPMyAdmin will be exposed on, you can edit the (.env)[./.env]
+file in this folder
 
 ### on the command line
 
