@@ -50,7 +50,7 @@ installation is intended to be easy to use even if you haven't.
 ### environment variables
 
 You don't need to make any changes, but if you wish to set the ports that
-Wordpress and/or PHPMyAdmin will be exposed on, you can edit the (.env)[./.env]
+Wordpress and/or PHPMyAdmin will be exposed on, you can edit the [.env file in this folder](./.env)
 file in this folder
 
 ### on the command line
