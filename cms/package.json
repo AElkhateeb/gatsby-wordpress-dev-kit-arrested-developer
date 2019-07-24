@@ -6,7 +6,7 @@
   "scripts": {
     "dev:start": "docker-compose up -d",
     "dev:stop": "docker-compose down",
-    "dev:erase": "docker-compose down -v && rm -r wordpress/wp-content/uploads",
+    "dev:erase": "docker-compose down -v && rm -rf wordpress/wp-content/uploads",
     "db:export": "docker exec wp_gatsbydev_db /usr/bin/mysqldump -u root --password=root wordpress > ./backups/`date +%Y-%m-%d-T%H:%M:%S`.sql",
     "db:import": "cat $IMPORT_DB | docker exec -i wp_gatsbydev_db /usr/bin/mysql -u root --password=root wordpress"
   },
