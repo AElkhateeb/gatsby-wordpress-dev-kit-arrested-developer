@@ -4,7 +4,8 @@
   "description": "A template repo for building a Gatsby site using Wordpress as CMS, using Docker for a local Wordpress instance",
   "main": "index.js",
   "scripts": {
-    "initialise": "gatsby new client"
+    "cms:start": "npm run dev:start --prefix cms",
+    "cms:stop": "npm run dev:stop --prefix cms"
   },
   "repository": {
     "type": "git",
