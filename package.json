@@ -6,9 +6,9 @@
   "scripts": {
     "cms:start": "npm run dev:start --prefix cms",
     "cms:stop": "npm run dev:stop --prefix cms",
-    "client:init": "gatsby new client https://github.com/GatsbyCentral/gatsby-starter-wordpress",
-    "client:start": "npm run start --prefix client",
-    "client:build": "npm run install --prefix client && npm run build --prefix client"
+    "gatsby:new": "gatsby new client https://github.com/GatsbyCentral/gatsby-starter-wordpress",
+    "gatsby:start": "npm run start --prefix client",
+    "gatsby:build": "npm run install --prefix client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
